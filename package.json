@@ -2,13 +2,26 @@
   "name": "root",
   "private": true,
   "version": "1.0.0",
+  "packageManager": "pnpm@8.15.6",
   "scripts": {
-    "dev": "concurrently 'pnpm --filter api start:dev' 'pnpm --filter web dev'"
+    "dev": "turbo run dev start:dev --ui=tui",
+    "dev:ui": "turbo run dev start:dev --ui=tui",
+    "dev:web": "turbo run dev start:dev --ui=web",
+    "dev:new": "turbo run dev start:dev --output-logs=new-only",
+    "dev:full": "turbo run dev start:dev --output-logs=full",
+    "dev:clean": "concurrently -n \"[API],[WEB]\" -c \"cyan,yellow\" \"pnpm --filter api start:dev\" \"pnpm --filter web dev\"",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:e2e": "turbo run test:e2e",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "check": "turbo run check"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "turbo": "^2.6.0"
   }
 }
