@@ -1,0 +1,14 @@
+{
+  "name": "root",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently 'pnpm --filter api start:dev' 'pnpm --filter web dev'"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
