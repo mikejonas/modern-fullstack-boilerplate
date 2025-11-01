@@ -3,6 +3,9 @@
 /node_modules
 /build
 
+# Turborepo
+.turbo
+
 # Logs
 logs
 *.log
